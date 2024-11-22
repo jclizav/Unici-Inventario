@@ -1,0 +1,29 @@
+/* Personalización de la barra de navegación */
+nav {
+    border-bottom: 2px solid #ffffff; /* Línea blanca debajo de la barra */
+}
+
+/* Estilo para los enlaces */
+nav a {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Hover en enlaces */
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco translúcido */
+    color: #fff;
+}
+
+/* Botón del usuario */
+button {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Personaliza el dropdown */
+.dropdown-content {
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px;
+}
