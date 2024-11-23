@@ -50,8 +50,8 @@
                     <td class="border border-gray-300 p-2">${responsable.nombre}</td>
                     <td class="border border-gray-300 p-2">${responsable.tipo === 'area' ? 'Responsable del área' : 'Responsable del bien'}</td>
                     <td class="border border-gray-300 p-2">
-                        <button class="bg-blue-500 text-white px-2 py-1 rounded">Editar</button>
-                        <button class="bg-red-500 text-white px-2 py-1 rounded">Eliminar</button>
+                        <button class="bg-blue-500 text-black px-2 py-1 rounded">Editar</button>
+                        <button class="bg-red-500 text-black px-2 py-1 rounded">Eliminar</button>
                     </td>
                 </tr>
             `;

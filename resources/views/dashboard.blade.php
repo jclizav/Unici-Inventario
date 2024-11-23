@@ -14,7 +14,7 @@
         <nav class="flex-1">
             <ul>
                 <li><a href="{{ route('dashboard') }}" class="block py-3 px-4 hover:bg-teal-500 rounded-lg">Dashboard</a></li>
-                <li><a href="{{ route('departamento') }}" class="block py-3 px-4 hover:bg-teal-500 rounded-lg">Departamento</a></li>
+                <li><a href="{{ route('departamento.index') }}" class="block py-3 px-4 hover:bg-teal-500 rounded-lg">Departamento</a></li>
                 <li><a href="{{ route('responsable') }}" class="block py-3 px-4 hover:bg-teal-500 rounded-lg">Responsables</a></li>
                 <li><a href="{{ route('inventario') }}" class="block py-3 px-4 hover:bg-teal-500 rounded-lg">Inventario</a></li>
                 <li><a href="{{ route('reportes') }}" class="block py-3 px-4 hover:bg-teal-500 rounded-lg">Reportes</a></li>

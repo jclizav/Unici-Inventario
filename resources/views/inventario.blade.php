@@ -23,7 +23,7 @@
         <nav class="flex-1">
             <ul>
                 <li><a href="{{ route('dashboard') }}" class="block py-3 px-4 hover:bg-teal-500 rounded-lg">Dashboard</a></li>
-                <li><a href="{{ route('departamento') }}" class="block py-3 px-4 hover:bg-teal-500 rounded-lg">Departamento</a></li>
+                <li><a href="{{ route('departamento.index') }}" class="block py-3 px-4 hover:bg-teal-500 rounded-lg">Departamento</a></li>
                 <li><a href="{{ route('responsable') }}" class="block py-3 px-4 hover:bg-teal-500 rounded-lg">Responsable</a></li>
                 <li><a href="{{ route('inventario') }}" class="block py-3 px-4 hover:bg-teal-500 rounded-lg">Inventario</a></li>
                 <li><a href="{{ route('reportes') }}" class="block py-3 px-4 hover:bg-teal-500 rounded-lg">Reportes</a></li>
@@ -43,11 +43,11 @@
                     <thead class="border-b border-gray-300">
                         <tr>
                             <th class="px-6 py-3 border-r border-gray-300 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">No. De inventario</th>
+                            <th class="px-6 py-3 border-r border-gray-300 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Id Codigo de barras</th>
                             <th class="px-6 py-3 border-r border-gray-300 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Nombre</th>
                             <th class="px-6 py-3 border-r border-gray-300 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Marca</th>
+                            <th class="px-6 py-3 border-r border-gray-300 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Modelo</th>
                             <th class="px-6 py-3 border-r border-gray-300 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Descripción</th>
-                            <th class="px-6 py-3 border-r border-gray-300 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Observaciones</th>
-                            <th class="px-6 py-3 border-r border-gray-300 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Observaciones</th>
                             <th class="px-6 py-3 border-r border-gray-300 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Observaciones</th>
                             <th class="px-6 py-3 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Acciones</th>
                         </tr>
@@ -55,8 +55,10 @@
                     <tbody>
                         <tr class="border-b border-gray-300">
                             <td class="px-6 py-4 border-r border-gray-300 text-center">UNICI-TUX-EM-0080</td>
+                            <td class="px-6 py-4 border-r border-gray-300 text-center">- - - -</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Cesto</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Desconocida</td>
+                            <td class="px-6 py-4 border-r border-gray-300 text-center">Desconocido</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Cesto de basura metálico de color gris</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Buen estado</td>
                             <td class="px-6 py-4 text-center">
@@ -65,8 +67,10 @@
                         </tr>
                         <tr class="border-b border-gray-300">
                             <td class="px-6 py-4 border-r border-gray-300 text-center">UNICI-TUX-ME-0171</td>
+                            <td class="px-6 py-4 border-r border-gray-300 text-center">- - - -</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Silla</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Desconocida</td>
+                            <td class="px-6 py-4 border-r border-gray-300 text-center">Desconocido</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Silla secretarial color negro base de plástico</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Daño en el respaldo</td>
                             <td class="px-6 py-4 text-center">
@@ -75,8 +79,10 @@
                         </tr>
                         <tr class="border-b border-gray-300">
                             <td class="px-6 py-4 border-r border-gray-300 text-center">UNICI-TUX-ME-0409</td>
+                            <td class="px-6 py-4 border-r border-gray-300 text-center">- - - -</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Escritorio</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Desconocida</td>
+                            <td class="px-6 py-4 border-r border-gray-300 text-center">Desconocido</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Escritorio de madera pequeño con 2 gavetas con llave</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Buen estado</td>
                             <td class="px-6 py-4 text-center">
@@ -85,8 +91,10 @@
                         </tr>
                         <tr class="border-b border-gray-300">
                             <td class="px-6 py-4 border-r border-gray-300 text-center">UNICI-TUX-ME-0409</td>
+                            <td class="px-6 py-4 border-r border-gray-300 text-center">- - - -</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Escritorio</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Desconocida</td>
+                            <td class="px-6 py-4 border-r border-gray-300 text-center">Desconocido</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Escritorio de madera pequeño con 2 gavetas con llave</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Buen estado</td>
                             <td class="px-6 py-4 text-center">
@@ -94,8 +102,10 @@
                         </tr>
                         <tr class="border-b border-gray-300">
                             <td class="px-6 py-4 border-r border-gray-300 text-center">UNICI-TUX-ME-0409</td>
+                            <td class="px-6 py-4 border-r border-gray-300 text-center">- - - -</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Escritorio</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Desconocida</td>
+                            <td class="px-6 py-4 border-r border-gray-300 text-center">Desconocido</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Escritorio de madera pequeño con 2 gavetas con llave</td>
                             <td class="px-6 py-4 border-r border-gray-300 text-center">Buen estado</td>
                             <td class="px-6 py-4 text-center">
