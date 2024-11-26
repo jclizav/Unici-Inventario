@@ -1,0 +1,93 @@
+/* Fuente global */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Paleta de colores personalizada */
+:root {
+    --color-blue-dark: #1e3a8a;
+    --color-blue-medium: #2563eb;
+    --color-orange: #f97316;
+    --color-gray-light: #f3f4f6;
+    --color-gray-dark: #1f2937;
+}
+
+/* Estilos generales */
+.bg-gradient-to-r {
+    background-image: linear-gradient(to right, var(--color-blue-dark), var(--color-blue-medium));
+}
+
+.text-gray-100 {
+    color: #f3f4f6;
+}
+
+.text-gray-800 {
+    color: var(--color-gray-dark);
+}
+
+.text-gray-300 {
+    color: #d1d5db;
+}
+
+/* Botones */
+button {
+    background-color: var(--color-orange);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #fb923c;
+}
+
+/* Enlaces */
+a {
+    color: var(--color-blue-medium);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedores */
+.bg-white {
+    background-color: var(--color-gray-light);
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+/* Encabezados */
+header h1 {
+    font-size: 1.875rem; /* 30px */
+}
+
+/* Pie de página */
+footer {
+    background-color: var(--color-blue-dark);
+    padding: 1rem 0;
+}
+
+/* Media queries para dispositivos pequeños */
+@media (max-width: 768px) {
+    .text-2xl {
+        font-size: 1.5rem; /* 24px */
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+    }
+}

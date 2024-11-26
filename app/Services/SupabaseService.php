@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use Supabase\Storage\Client as CreateClient;
+use Supabase\CreateClient;
 
 class SupabaseService
 {
-    private $supabase;
+    protected $supabase;
 
     public function __construct()
     {
