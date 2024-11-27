@@ -17,21 +17,29 @@
     <body class="font-sans antialiased">
         <!-- Establece un color azul claro específico para el fondo -->
         <div class="min-h-screen" style="background-color: #e2e8f0;">
-            @include('layouts.navigation')
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-black dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
+            <div class="min-h-screen bg-gray-100 dark:bg-gray-900 sm:flex">
 
-            <!-- Page Content -->
-            <main>
-               @yield('content')
-            </main>
+                @include('layouts.navigation')
+                
+                <section class="sm:ml-[0%] sm:w-screen">
+                    <!-- Page Heading -->
+                    @isset($header)
+                    <header class="bg-black shadow dark:bg-gray-800">
+                        <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                            {{ $header }}
+                        </div>
+                    </header>
+                    @endisset
+                    
+                    <!-- Page Content -->
+                    <main>
+                        @yield('content')
+                    </main>
+                </section>
+
+            </div>
+
         </div>
     </body>
 </html>
