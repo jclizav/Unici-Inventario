@@ -6,7 +6,7 @@
 
     <!-- Mensajes de éxito -->
     @if(session('success'))
-        <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
+        <div class="bg-green-100 text-blue-800 p-4 mb-4 rounded">
             {{ session('success') }}
         </div>
     @endif

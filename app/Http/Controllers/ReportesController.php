@@ -9,6 +9,6 @@ class ReportesController extends Controller
 {
     public function index()
     {
-        return view('dashboard');
+        return view('reportes');
     }
 }
