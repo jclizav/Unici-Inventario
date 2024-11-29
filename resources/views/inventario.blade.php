@@ -7,7 +7,7 @@
         <div class="p-6 text-center font-bold text-lg">
             <div class="mb-4">
                 <p class="mt-2">Elian</p>
-                <p class="text-sm text-gray-800">Elian@gmail.com</p>
+                <p class="text-sm text-gray-400">Elian@gmail.com</p>
             </div>
         </div>
 
@@ -28,96 +28,102 @@
 
     <!-- Contenido principal -->
     <div class="flex-1 bg-white p-8">
-        <title>Inventario</title>
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- DataTables CSS -->
-        <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-bold text-gray-700">Inventario</h1>
+            <button id="addItemButton" class="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Añadir Bien</button>
+        </div>
 
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h1>Inventario</h1>
-                <a href="#" class="btn btn-primary">Añadir Bien</a>
-            </div>
+        <!-- Filtros -->
+        <div class="flex flex-wrap gap-4 mb-6">
+            <select name="estado" id="filterStatus" class="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-300">
+                <option value="">Filtrar por Estado</option>
+                <option value="en_uso">En Uso</option>
+                <option value="resguardo">Resguardo</option>
+                <option value="en_revision">En Revisión</option>
+                <option value="descompuesto">Descompuesto</option>
+                <option value="de_baja">De Baja</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="Buscar Bien" class="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-300">
+            <button id="searchButton" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Buscar</button>
+        </div>
 
-            <!-- Filtros -->
-            <div class="mb-3">
-                <form method="GET" action="#" class="row g-3">
-                    <div class="col-md-4">
-                        <select name="estado" class="form-select">
-                            <option value="">Filtrar por Estado</option>
-                            <option value="en_uso">En Uso</option>
-                            <option value="resguardo">Resguardo</option>
-                            <option value="en_revision">En Revisión</option>
-                            <option value="descompuesto">Descompuesto</option>
-                            <option value="de_baja">De Baja</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <input type="text" name="buscar" class="form-control" placeholder="Buscar Bien">
-                    </div>
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-secondary">Buscar</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Tabla del Inventario -->
-            <table class="table table-striped" id="inventarioTable">
+        <!-- Tabla -->
+        <div class="overflow-x-auto">
+            <table class="min-w-full border-collapse border border-gray-300">
                 <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Código de Barras</th>
-                        <th>Nombre/Bien</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Color</th>
-                        <th>Precio</th>
-                        <th>Estado</th>
-                        <th>Unidad de Medida</th>
-                        <th>Observaciones</th>
-                        <th>Acciones</th>
+                    <tr class="bg-gray-200">
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">#</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Código de Barras</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Nombre/Bien</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Marca</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Color</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Modelo</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Estado</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Observaciones</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- Datos ficticios -->
-                    <tr>
-                        <td>1</td>
-                        <td>1234567890</td>
-                        <td>Monitor 24 pulgadas</td>
-                        <td>Samsung</td>
-                        <td>LF24T350</td>
-                        <td>Negro</td>
-                        <td>200.00</td>
-                        <td><span class="badge bg-success">En Uso</span></td>
-                        <td>Pieza</td>
-                        <td>En perfectas condiciones</td>
-                        <td>
-                            <a href="#" class="btn btn-warning btn-sm">Editar</a>
-                            <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
-                        </td>
-                    </tr>
+                <tbody id="inventoryTable">
+                    <!-- Filas dinámicas -->
                 </tbody>
             </table>
         </div>
-
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <!-- DataTables JS -->
-        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
-        <!-- Inicializar DataTables -->
-        <script>
-        $(document).ready(function () {
-            $('#inventarioTable').DataTable({
-                language: {
-                    url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json" // Traducción al español
-                }
-            });
-        });
-        </script>
     </div>
 </div>
+
+<script>
+    const inventoryTable = document.getElementById('inventoryTable');
+    const addItemButton = document.getElementById('addItemButton');
+
+    // Datos iniciales
+    let inventory = [
+        { id: 1, codigo: '1234567890', nombre: 'Monitor', marca: 'Samsung', color: 'Negro', modelo: 'LF24T350', estado: 'en_uso', observaciones: 'En buen estado' },
+        { id: 2, codigo: '0987654321', nombre: 'Mouse', marca: 'Logitech', color: 'Gris', modelo: 'M185', estado: 'descompuesto', observaciones: 'Cable suelto' },
+    ];
+
+    // Renderizar tabla
+    function renderTable(data) {
+        inventoryTable.innerHTML = '';
+        data.forEach((item, index) => {
+            inventoryTable.innerHTML += `
+                <tr class="hover:bg-gray-100">
+                    <td class="border border-gray-300 px-4 py-2 text-sm text-gray-600">${index + 1}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-sm text-gray-600">${item.codigo}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-sm text-gray-600">${item.nombre}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-sm text-gray-600">${item.marca}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-sm text-gray-600">${item.color}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-sm text-gray-600">${item.modelo}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-sm text-gray-600">${item.estado}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-sm text-gray-600">${item.observaciones}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-sm text-gray-600">
+                        <button class="text-blue-700 hover:underline mr-2">Editar</button>
+                        <button class="text-orange-700 hover:underline">Eliminar</button>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+
+    // Añadir nuevo bien
+    addItemButton.addEventListener('click', () => {
+        const newItem = {
+            id: inventory.length + 1,
+            codigo: prompt('Ingrese el código de barras:'),
+            nombre: prompt('Ingrese el nombre del bien:'),
+            marca: prompt('Ingrese la marca:'),
+            color: prompt('Ingrese el color:'),
+            modelo: prompt('Ingrese el modelo:'),
+            estado: 'en_uso',
+            observaciones: 'Sin observaciones',
+        };
+
+        if (newItem.codigo && newItem.nombre) {
+            inventory.push(newItem);
+            renderTable(inventory);
+        }
+    });
+
+    // Inicializar
+    renderTable(inventory);
+</script>
 @endsection
