@@ -79,6 +79,8 @@
     let inventory = [
         { id: 1, codigo: '1234567890', nombre: 'Monitor', marca: 'Samsung', color: 'Negro', modelo: 'LF24T350', estado: 'en_uso', observaciones: 'En buen estado' },
         { id: 2, codigo: '0987654321', nombre: 'Mouse', marca: 'Logitech', color: 'Gris', modelo: 'M185', estado: 'descompuesto', observaciones: 'Cable suelto' },
+        { id: 3, codigo: '0987654321', nombre: 'Mouse', marca: 'Logitech', color: 'Gris', modelo: 'M185', estado: 'descompuesto', observaciones: 'Cable suelto' },
+
     ];
 
     // Renderizar tabla
