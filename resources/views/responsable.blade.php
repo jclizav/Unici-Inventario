@@ -2,15 +2,18 @@
 
 @section('content')
 <div class="flex h-screen">
-    <!-- Sidebar -->
     <div class="w-64 bg-cyan-700 text-white flex flex-col">
         <div class="p-6 text-center font-bold text-lg">
             <div class="mb-4">
-                <p class="mt-2">Elian</p>
-                <p class="text-sm text-gray-400">Elian@gmail.com</p>
+                @if(Auth::check())
+                    <p class="mt-2">{{ Auth::user()->name }}</p> 
+                    <p class="text-sm text-gray-400">{{ Auth::user()->email }}</p> 
+                @else
+                    <p class="mt-2">Invitado</p>
+                    <p class="text-sm text-gray-400">No autenticado</p>
+                @endif
             </div>
         </div>
-
         <nav class="flex-1">
             <ul>
                 <li><a href="{{ route('dashboard') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Dashboard</a></li>
