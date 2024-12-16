@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="flex h-screen">
+    <!-- Sidebar -->
     <div class="w-64 bg-cyan-700 text-white flex flex-col">
         <div class="p-6 text-center font-bold text-lg">
             <div class="mb-4">
@@ -15,19 +16,19 @@
             </div>
         </div>
 
-        <nav class="flex-1">
+        {{-- <nav class="flex-1">
             <ul>
-                <li><a href="#" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Dashboard</a></li>
-                <li><a href="#" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Departamento</a></li>
-                <li><a href="#" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Responsables</a></li>
-                <li><a href="#" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Inventario</a></li>
-                <li><a href="#" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Reportes</a></li>
-                <li><a href="#" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Sourvenirs</a></li>
-                <li><a href="#" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Papelería e Insumos</a></li>
-                <li><a href="#" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Inventario Activos</a></li>
+                <li><a href="{{ route('dashboard') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Dashboard</a></li>
+                <li><a href="{{ route('departamento.index') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Departamento</a></li>
+                <li><a href="{{ route('responsable') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Responsables</a></li>
+                <li><a href="{{ route('inventario') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Inventario</a></li>
+                <li><a href="{{ route('reportes') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Reportes</a></li>
+                <li><a href="{{ route('sourvenirs') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Sourvenirs</a></li>
+                <li><a href="{{ route('papeleriainsumos') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Insumos de papeleria</a></li>
+                <li><a href="{{ route('inventarioactivos') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Inventario activos</a></li>
                 <li><a href="#" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Configuración</a></li>
             </ul>
-        </nav>
+        </nav> --}}
     </div>
 
     <!-- Contenido principal -->

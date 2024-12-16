@@ -30,9 +30,9 @@ Route::get('/papeleriainsumos', [PapeleriaInsumosController::class, 'index'])->n
 Route::get('/inventarioactivos', [InventarioActivosController::class, 'index'])->name('inventarioactivos');
 
 // Ruta principal (Welcome)
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Ruta adicional del dashboard (solo para usuarios autenticados)
 Route::get('/dashboard', function () {
