@@ -1,55 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex h-screen">
-    <!-- Sidebar -->
-    <div class="w-64 bg-cyan-700 text-white flex flex-col">
-        <div class="p-6 text-center font-bold text-lg">
-            <div class="mb-4">
-                <p class="mt-2">Elian</p>
-                <p class="text-sm text-gray-400">Elian@gmail.com</p>
-            </div>
-        </div>
-
-        <nav class="flex-1">
-            <ul>
-                <li><a href="{{ route('dashboard') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Dashboard</a></li>
-                <li><a href="{{ route('departamento.index') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Departamento</a></li>
-                <li><a href="{{ route('responsable') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Responsables</a></li>
-                <li><a href="{{ route('inventario') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Inventario</a></li>
-                <li><a href="{{ route('reportes') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Reportes</a></li>
-                <li><a href="{{ route('sourvenirs') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Sourvenirs</a></li>
-                <li><a href="{{ route('papeleriainsumos') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Insumos de papelería</a></li>
-                <li><a href="{{ route('inventarioactivos') }}" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Inventario activos</a></li>
-                <li><a href="#" class="block py-3 px-4 hover:bg-orange-500 rounded-lg">Configuración</a></li>
-            </ul>
-        </nav>
-    </div>
-
+<div class="flex h-screen"> 
     <!-- Contenido principal -->
-    <div class="flex-1 bg-white p-8">
-        <div class="flex justify-between items-center mb-4">
+    <div class="flex-1 py-6 pl-1 bg-white">
+        <div class="flex items-center justify-between pl-8 mb-4">
             <h1 class="text-2xl font-bold text-gray-700">Responsables</h1>
         </div>
 
         <!-- Filtros -->
-        <div class="flex flex-wrap gap-4 mb-6">
-            <select id="filterType" class="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-300">
-                <option value="">Filtrar por tipo</option>
-                <option value="area">Responsable del área</option>
-                <option value="bien">Responsable del bien</option>
-            </select>
-            <input type="text" id="search" placeholder="Buscar por nombre..." class="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-300">
+        <div class="flex flex-wrap gap-4 p-2 place-content-between bg-slate-300">
+            <div class="flex gap-4">
+                <input type="text" id="search" placeholder="Buscar por nombre..." class="px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300">
+                <div class="border-2 rounded-lg w-9 border-slate-500"> <button class="grid w-full h-full place-content-center"> <svg class="w-7 h-7 text-slate-500"  width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="12" y1="5" x2="12" y2="19" />  <line x1="5" y1="12" x2="19" y2="12" /></svg></button> </div>
+                <div class="border-2 rounded-lg w-9 border-slate-500"> <button class="grid w-full h-full place-content-center"> <svg class="w-7 h-7 text-slate-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/> </svg> </button> </div>
+                <div class="border-2 rounded-lg w-9 border-slate-500"> <button class="grid w-full h-full place-content-center"> <svg class="w-6 h-6 text-slate-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <polyline points="3 6 5 6 21 6" />  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />  <line x1="10" y1="11" x2="10" y2="17" />  <line x1="14" y1="11" x2="14" y2="17" /></svg> </button> </div>
+                <div class="border-2 border-red-600 rounded-lg w-9"> <button class="grid w-full h-full place-content-center"> <svg class="text-red-600 h-7 w-7"  fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/> </svg> </button> </div>
+            </div>
+            <div class="flex gap-4">
+                <select id="filterType" class="px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300">
+                    <option value="">Filtrar por tipo</option>
+                    <option value="area">Responsable del área</option>
+                    <option value="bien">Responsable del bien</option>
+                </select>
+                <div class="border-2 rounded-lg w-9 border-emerald-600"> <button class="grid w-full h-full place-content-center"> <svg class="w-7 h-7 text-emerald-600"  fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/> </svg> </button> </div>
+            </div>
         </div>
 
         <!-- Tabla -->
         <div class="overflow-x-auto">
-            <table class="min-w-full border-collapse border border-gray-300">
+            <table class="min-w-full border border-collapse border-gray-300">
                 <thead>
                     <tr class="bg-gray-200">
-                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Nombre</th>
-                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Tipo</th>
-                        <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Acciones</th>
+                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Nombre</th>
+                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Tipo</th> 
                     </tr>
                 </thead>
                 <tbody id="responsablesTable">
@@ -78,12 +62,8 @@
         data.forEach(responsable => {
             tableBody.innerHTML += `
                 <tr class="hover:bg-gray-100">
-                    <td class="border border-gray-300 px-4 py-2 text-sm text-gray-600">${responsable.nombre}</td>
-                    <td class="border border-gray-300 px-4 py-2 text-sm text-gray-600">${responsable.tipo === 'area' ? 'Responsable del área' : 'Responsable del bien'}</td>
-                    <td class="border border-gray-300 px-4 py-2 text-sm text-gray-600">
-                        <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Editar</button>
-                        <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Eliminar</button>
-                    </td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">${responsable.nombre}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">${responsable.tipo === 'area' ? 'Responsable del área' : 'Responsable del bien'}</td>
                 </tr>
             `;
         });
