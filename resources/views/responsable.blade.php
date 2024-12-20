@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex h-screen"> 
     <!-- Contenido principal -->
     <div class="flex-1 py-6 pl-1 bg-white">
         <div class="flex items-center justify-between pl-8 mb-4">

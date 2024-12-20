@@ -16,7 +16,7 @@ class SupabaseService
         if (!$url || !$key) {
             throw new \Exception('Las variables de entorno SUPABASE_URL y SUPABASE_KEY no están configuradas.');
         }
-
+        
         $this->supabase = new CreateClient($url, $key);
     }
 
