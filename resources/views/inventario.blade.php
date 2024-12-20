@@ -53,7 +53,7 @@
     </div>
 </div>
 
-<dialog id="dialog" class="top-40 py-5 min-w-[400px] px-5 rounded-lg bg-slate-300 border-2 border-sky-700" >
+<dialog id="dialog" class="top-40 py-5 min-w-[400px] px-5 rounded-lg bg-slate-300 border-2 border-sky-700" style="display: none;">
     <button id="cerrarDialogo" class="absolute px-3 py-1 font-bold rounded-full right-10 text-slate-200 bg-sky-700">
         X
     </button>
@@ -95,7 +95,7 @@
             
         </div>
     </div>
-    <button class="w-full py-2 mt-4 font-semibold rounded-lg bg-sky-700 text-slate-200"> Cargar elemento </button>
+    <button id="addItemButton" class="w-full py-2 mt-4 font-semibold rounded-lg bg-sky-700 text-slate-200"> Cargar elemento </button>
 </dialog>
 
 <script>
@@ -216,8 +216,8 @@
             marca: document.getElementById('marca').value,
             color: document.getElementById('color').value,
             modelo: document.getElementById('modelo').value,
-            estado: 'en_uso',
-            observaciones: 'Sin observaciones',
+            estado: document.getElementById('estado').value,
+            observaciones: document.getElementById('obs').value,
         };
 
         if (newItem.codigo && newItem.nombre) {
@@ -235,6 +235,8 @@
         document.getElementById('marca').value = '';
         document.getElementById('color').value = '';
         document.getElementById('modelo').value = '';
+        document.getElementById('estado').value = '';
+        document.getElementById('obs').value = '';
     }
 
     renderTable(inventory);
