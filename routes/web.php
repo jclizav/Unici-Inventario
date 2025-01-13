@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DepartamentoController;
-use App\Http\Controllers\ResponsableController;
+use App\Http\Controllers\GeneralController;
+use App\Http\Controllers\SATController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\ReportesController;
 use App\Http\Controllers\SourvenirsController;
@@ -15,14 +15,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // Rutas para departamentos
-Route::prefix('departamento')->group(function () {
-    Route::get('/', [DepartamentoController::class, 'index'])->name('departamento.index'); // Mostrar departamentos
-    Route::post('/', [DepartamentoController::class, 'store'])->name('departamento.store'); // Crear un nuevo departamento
-    Route::delete('/{id}', [DepartamentoController::class, 'destroy'])->name('departamento.destroy'); // Eliminar un departamento
+Route::prefix('General')->group(function () {
+    Route::get('/', [GeneralController::class, 'index'])->name('General.index'); // Mostrar Generals
+    Route::post('/', [GeneralController::class, 'store'])->name('General.store'); // Crear un nuevo General
+    Route::delete('/{id}', [GeneralController::class, 'destroy'])->name('General.destroy'); // Eliminar un General
 });
 
 // Rutas para otras secciones
-Route::get('/responsable', [ResponsableController::class, 'index'])->name('responsable');
+Route::get('/SAT', [SATController::class, 'index'])->name('responsable');
+Route::put('/añadirDato',[GeneralController::class, 'create'])->name('createN');
+Route::get('/actualizarDato/{id}',[GeneralController::class, 'edit'])->name('editN');
+Route::put('/actualizarDato/{id}',[GeneralController::class, 'editUP'])->name('editN.up');
+Route::put('/eliminarDato/{id}',[GeneralController::class, 'delite'])->name('eliminarN');
+Route::get('/descarga/{filename}',[GeneralController::class, 'Descarga'])->name('Descarga');
 Route::get('/inventario', [InventarioController::class, 'index'])->name('inventario');
 Route::get('/reportes', [ReportesController::class, 'index'])->name('reportes');
 Route::get('/sourvenirs', [SourvenirsController::class, 'index'])->name('sourvenirs');

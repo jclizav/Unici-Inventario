@@ -11,7 +11,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 transition-opacity sm:-my-px sm:ms-2 sm:hidden sm:opacity-0 sm:group-hover:opacity-100 sm:group-hover:flex sm:group-hover:w-60 sm:group-hover:rounded-md sm:hover:bg-orange-600">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Inicio') }}
                     </x-nav-link>
                 </div>
                 
@@ -22,15 +22,30 @@
                 </div> --}}
 
                 <div class="hidden space-x-8 transition-opacity sm:-my-px sm:ms-2 sm:hidden sm:opacity-0 sm:group-hover:opacity-100 sm:group-hover:flex sm:group-hover:w-60 sm:group-hover:rounded-md sm:hover:bg-orange-600">
-                    <x-nav-link :href="route('responsable')" :active="request()->routeIs('responsable')">
-                        {{ __('Responsables') }}
+                    <x-nav-link :href="route('General.index')" :active="request()->routeIs('General.index')">
+                        {{ __('Inventario') }}
                     </x-nav-link>
                 </div>
+                
+                <div class="hidden space-x-8 transition-opacity sm:-my-px sm:ms-2 sm:hidden sm:opacity-0 sm:group-hover:opacity-100 sm:group-hover:flex sm:group-hover:w-60 sm:group-hover:rounded-md sm:hover:bg-orange-600">
+                    <x-nav-link :href="route('responsable')" :active="request()->routeIs('responsable')">
+                        {{ __('SAT') }}
+                    </x-nav-link>
+                </div>
+
                 <div class="hidden space-x-8 transition-opacity sm:-my-px sm:ms-2 sm:hidden sm:opacity-0 sm:group-hover:opacity-100 sm:group-hover:flex sm:group-hover:w-60 sm:group-hover:rounded-md sm:hover:bg-orange-600">
                     <x-nav-link :href="route('reportes')" :active="request()->routeIs('reportes')">
                         {{ __('Reportes') }}
                     </x-nav-link>
                 </div>
+                
+                <div class="hidden space-x-8 transition-opacity sm:-my-px sm:ms-2 sm:hidden sm:opacity-0 sm:group-hover:opacity-100 sm:group-hover:flex sm:group-hover:w-60 sm:group-hover:rounded-md sm:hover:bg-orange-600">
+                    <x-nav-link :href="route('papeleriainsumos')" :active="request()->routeIs('papeleriainsumos')">
+                        {{ __('Insumos papeleria') }}
+                    </x-nav-link>
+                </div>
+
+                {{-- Este es el de osiris --}}
                 <div class="sm:hidden sm:opacity-0 sm:group-hover:opacity-100 sm:group-hover:grid">
                     <!-- Botón del menú -->
                     <button onclick="toggleMenu()" class="hidden p-2 space-x-8 text-sm font-medium transition-opacity sm:-my-px sm:ms-2 sm:hidden sm:opacity-0 sm:group-hover:opacity-100 sm:group-hover:flex sm:group-hover:w-60 sm:group-hover:rounded-md sm:hover:bg-orange-600 sm:text-sky-700 sm:hover:text-slate-100">
@@ -44,24 +59,8 @@
                                 {{ __('Inventario') }}
                             </x-nav-link>
                         </div>
-                        <div class="space-x-8 transition-opacity sm:-my-px sm:hover:bg-orange-600">
-                            <x-nav-link :href="route('sourvenirs')" :active="request()->routeIs('sourvenirs')">
-                                {{ __('Sourvenirs') }}
-                            </x-nav-link>
-                        </div>
-                        <div class="space-x-8 transition-opacity sm:-my-px sm:hover:bg-orange-600">
-                            <x-nav-link :href="route('inventarioactivos')" :active="request()->routeIs('inventarioactivos')">
-                                {{ __('Inventario activos') }}
-                            </x-nav-link>
-                        </div>
                     </div>
                 </div>
-                
-                {{-- <div class="hidden space-x-8 transition-opacity sm:-my-px sm:ms-2 sm:hidden sm:opacity-0 sm:group-hover:opacity-100 sm:group-hover:flex sm:group-hover:w-60 sm:group-hover:rounded-md sm:hover:bg-orange-600">
-                    <x-nav-link :href="route('papeleriainsumos')" :active="request()->routeIs('papeleriainsumos')">
-                        {{ __('Insumos de papeleria') }}
-                    </x-nav-link>
-                </div> --}}
 
             </div>
 
