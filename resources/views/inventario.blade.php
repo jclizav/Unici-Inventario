@@ -3,138 +3,142 @@
 @section('content')
 
 <!-- Contenido principal -->
-<div class="h-screen p-0 bg-white sm:px-1 sm:pt-7 md:w-full">
-    <div class="flex items-center justify-between mb-4">
-        <h1 class="text-2xl font-bold text-gray-700 pl-7">Inventario</h1>
-    </div>
 
-    <!-- Filtros -->
-    <div class="flex flex-wrap gap-4 p-2 place-content-between bg-slate-300">
-        <div class="flex gap-4 items-center">
-            <!-- Input de búsqueda -->
-            <input
-                type="text"
-                id="search"
-                placeholder="Buscar por nombre..."
-                class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300" />
-
-            <!-- Botón de Mostrar -->
-            <div class="flex items-center gap-2">
-                <button id="Mostrar" class="flex items-center justify-center w-9 h-9 rounded-md border border-gray-300 hover:bg-gray-100">
-                    <svg
-                        class="w-6 h-6 text-gray-500"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        stroke-width="2"
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <line x1="12" y1="5" x2="12" y2="19" />
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                </button>
-                <span class="text-gray-600 text-sm">Mostrar</span>
+<div class="main-content">
+    <section class="section">
+        <div class="h-screen p-0 bg-white sm:px-1 sm:pt-7 md:w-full">
+            <div class="flex items-center justify-between mb-4">
+                <h1 class="text-2xl font-bold text-gray-700 pl-7">Inventario</h1>
             </div>
 
-            <!-- Botón de Editar -->
-            <div class="flex items-center gap-2">
-                <button class="flex items-center justify-center w-9 h-9 rounded-md border border-gray-300 hover:bg-gray-100">
-                    <svg
-                        class="w-6 h-6 text-gray-500"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg>
-                </button>
-                <span class="text-gray-600 text-sm">Editar</span>
-            </div>
+            <!-- Filtros -->
+            <div class="flex flex-wrap gap-4 p-2 place-content-between bg-slate-300">
+                <div class="flex items-center gap-4">
+                    <!-- Input de búsqueda -->
+                    <input
+                        type="text"
+                        id="search"
+                        placeholder="Buscar por nombre..."
+                        class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300" />
 
-            <!-- Botón de Eliminar -->
-            <div class="flex items-center gap-2">
-                <button class="flex items-center justify-center w-9 h-9 rounded-md border border-gray-300 hover:bg-gray-100">
-                    <svg
-                        class="w-6 h-6 text-gray-500"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <polyline points="3 6 5 6 21 6" />
-                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                        <line x1="10" y1="11" x2="10" y2="17" />
-                        <line x1="14" y1="11" x2="14" y2="17" />
-                    </svg>
-                </button>
-                <span class="text-gray-600 text-sm">Eliminar</span>
-            </div>
+                    <!-- Botón de Mostrar -->
+                    <div class="flex items-center gap-2">
+                        <button id="Mostrar" class="flex items-center justify-center border border-gray-300 rounded-md w-9 h-9 hover:bg-gray-100">
+                            <svg
+                                class="w-6 h-6 text-gray-500"
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" />
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </button>
+                        <span class="text-sm text-gray-600">Mostrar</span>
+                    </div>
 
-            <!-- Botón de Descargar -->
-            <div class="flex items-center gap-2">
-                <button class="flex items-center justify-center w-9 h-9 rounded-md border border-red-500 hover:bg-red-50">
-                    <svg
-                        class="w-6 h-6 text-red-500"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                </button>
-                <span class="text-red-500 text-sm">Descargar</span>
-            </div>
-        </div>
+                    <!-- Botón de Editar -->
+                    <div class="flex items-center gap-2">
+                        <button class="flex items-center justify-center border border-gray-300 rounded-md w-9 h-9 hover:bg-gray-100">
+                            <svg
+                                class="w-6 h-6 text-gray-500"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                        </button>
+                        <span class="text-sm text-gray-600">Editar</span>
+                    </div>
 
-        <div class="flex gap-4 items-center">
-            <select id="filterType" class="px-4 py-2 w-full bg-transparent border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-400 focus:outline-none">
-                <option value="" class="text-gray-500">Filtrar por categoría</option>
-                <option value="en_uso" class="text-gray-700">Sourvenirs</option>
-                <option value="resguardo" class="text-gray-700">Equipo de cómputo</option>
-                <option value="en_revision" class="text-gray-700">Papelería</option>
-                <option value="descompuesto" class="text-gray-700">Publicidad impresa</option>
-            </select>
-            <div class="border-2 rounded-lg w-9 border-emerald-600"> <button class="grid w-full h-full place-content-center"> <svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg> </button> </div>
-        </div>
-    </div>
-    <!-- Tabla -->
-    <div class="overflow-x-scroll max-w-[80vw] sm:max-w-none h-[87%]">
-        <table class="min-w-full border border-collapse border-gray-300">
-            <thead class="sticky top-0">
-                <tr class="bg-gray-200">
-                    <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">ID</th>
-                    <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Código de Barras</th>
-                    <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Numero de serie</th>
-                    <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Nombre/Bien</th>
-                    <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Marca</th>
-                    <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Color</th>
-                    <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Modelo</th>
-                    <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Estado</th>
-                    <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Observaciones</th>
-                    <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Categoría de inventarío</th>
-                </tr>
-            </thead>
-            <tbody id="inventoryTable" class="sm:max-w-[90vw] overflow-y-scroll">
-                <!-- Filas dinámicas -->
-            </tbody>
-        </table>
-    </div>
+                    <!-- Botón de Eliminar -->
+                    <div class="flex items-center gap-2">
+                        <button class="flex items-center justify-center border border-gray-300 rounded-md w-9 h-9 hover:bg-gray-100">
+                            <svg
+                                class="w-6 h-6 text-gray-500"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                <line x1="10" y1="11" x2="10" y2="17" />
+                                <line x1="14" y1="11" x2="14" y2="17" />
+                            </svg>
+                        </button>
+                        <span class="text-sm text-gray-600">Eliminar</span>
+                    </div>
+
+                    <!-- Botón de Descargar -->
+                    <div class="flex items-center gap-2">
+                        <button class="flex items-center justify-center border border-red-500 rounded-md w-9 h-9 hover:bg-red-50">
+                            <svg
+                                class="w-6 h-6 text-red-500"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </button>
+                        <span class="text-sm text-red-500">Descargar</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <select id="filterType" class="w-full px-4 py-2 text-gray-700 bg-transparent border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                        <option value="" class="text-gray-500">Filtrar por categoría</option>
+                        <option value="en_uso" class="text-gray-700">Sourvenirs</option>
+                        <option value="resguardo" class="text-gray-700">Equipo de cómputo</option>
+                        <option value="en_revision" class="text-gray-700">Papelería</option>
+                        <option value="descompuesto" class="text-gray-700">Publicidad impresa</option>
+                    </select>
+                    <div class="border-2 rounded-lg w-9 border-emerald-600"> <button class="grid w-full h-full place-content-center"> <svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg> </button> </div>
+                </div>
+            </div>
+            <!-- Tabla -->
+            <div class="overflow-x-scroll max-w-[80vw] sm:max-w-none h-[87%]">
+                <table class="min-w-full border border-collapse border-gray-300">
+                    <thead class="sticky top-0">
+                        <tr class="bg-gray-200">
+                            <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">ID</th>
+                            <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Código de Barras</th>
+                            <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Numero de serie</th>
+                            <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Nombre/Bien</th>
+                            <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Marca</th>
+                            <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Color</th>
+                            <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Modelo</th>
+                            <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Estado</th>
+                            <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Observaciones</th>
+                            <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Categoría de inventarío</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryTable" class="sm:max-w-[90vw] overflow-y-scroll">
+                        <!-- Filas dinámicas -->
+                    </tbody>
+                </table>
+            </div>
+        </div> 
+    </section>
 </div>
-</div>
 
-<dialog id="dialog" class="top-40 py-6 min-w-[400px] px-6 rounded-lg bg-white shadow-lg border-2 border-sky-500" style="display: none;">
+<dialog id="dialog" class="top-40 z-50 py-6 min-w-[400px] px-6 rounded-lg bg-white shadow-lg border-2 border-sky-500" style="display: none;">
     <!-- Botón para cerrar el diálogo -->
-    <button id="cerrarDialogo" class="absolute top-4 right-4 px-3 py-1 font-semibold rounded-full text-white bg-sky-700 hover:bg-sky-600 transition-colors">
+    <button id="cerrarDialogo" class="absolute px-3 py-1 font-semibold text-white transition-colors rounded-full top-4 right-4 bg-sky-700 hover:bg-sky-600">
         X
     </button>
 
@@ -144,41 +148,41 @@
     </h3>
 
     <!-- Contenedor de los campos de entrada -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div>
-            <label for="codigo" class="block text-sm font-semibold text-sky-700 mb-2">Código de Barras</label>
-            <input type="text" name="Codigo" id="codigo" class="w-full px-4 py-2 rounded-lg border border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all" />
+            <label for="codigo" class="block mb-2 text-sm font-semibold text-sky-700">Código de Barras</label>
+            <input type="text" name="Codigo" id="codigo" class="w-full px-4 py-2 transition-all border rounded-lg border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500" />
 
-            <label for="numeroSerie" class="block text-sm font-semibold text-sky-700 mt-4 mb-2">Número de Serie</label>
-            <input type="text" name="Codigo" id="numeroSerie" class="w-full px-4 py-2 rounded-lg border border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all" />
+            <label for="numeroSerie" class="block mt-4 mb-2 text-sm font-semibold text-sky-700">Número de Serie</label>
+            <input type="text" name="Codigo" id="numeroSerie" class="w-full px-4 py-2 transition-all border rounded-lg border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500" />
 
-            <label for="nombre" class="block text-sm font-semibold text-sky-700 mt-4 mb-2">Nombre</label>
-            <input type="text" name="Codigo" id="nombre" class="w-full px-4 py-2 rounded-lg border border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all" />
+            <label for="nombre" class="block mt-4 mb-2 text-sm font-semibold text-sky-700">Nombre</label>
+            <input type="text" name="Codigo" id="nombre" class="w-full px-4 py-2 transition-all border rounded-lg border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500" />
 
-            <label for="marca" class="block text-sm font-semibold text-sky-700 mt-4 mb-2">Marca</label>
-            <input type="text" name="Codigo" id="marca" class="w-full px-4 py-2 rounded-lg border border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all" />
+            <label for="marca" class="block mt-4 mb-2 text-sm font-semibold text-sky-700">Marca</label>
+            <input type="text" name="Codigo" id="marca" class="w-full px-4 py-2 transition-all border rounded-lg border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500" />
 
-            <label for="obs" class="block text-sm font-semibold text-sky-700 mt-4 mb-2">Observaciones</label>
-            <input type="text" name="Codigo" id="obs" class="w-full px-4 py-2 rounded-lg border border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all" />
+            <label for="obs" class="block mt-4 mb-2 text-sm font-semibold text-sky-700">Observaciones</label>
+            <input type="text" name="Codigo" id="obs" class="w-full px-4 py-2 transition-all border rounded-lg border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500" />
         </div>
 
         <div>
-            <label for="color" class="block text-sm font-semibold text-sky-700 mb-2">Color</label>
-            <input type="text" name="Codigo" id="color" class="w-full px-4 py-2 rounded-lg border border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all" />
+            <label for="color" class="block mb-2 text-sm font-semibold text-sky-700">Color</label>
+            <input type="text" name="Codigo" id="color" class="w-full px-4 py-2 transition-all border rounded-lg border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500" />
 
-            <label for="modelo" class="block text-sm font-semibold text-sky-700 mt-4 mb-2">Modelo</label>
-            <input type="text" name="Codigo" id="modelo" class="w-full px-4 py-2 rounded-lg border border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all" />
+            <label for="modelo" class="block mt-4 mb-2 text-sm font-semibold text-sky-700">Modelo</label>
+            <input type="text" name="Codigo" id="modelo" class="w-full px-4 py-2 transition-all border rounded-lg border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500" />
 
-            <label for="estado" class="block text-sm font-semibold text-sky-700 mt-4 mb-2">Estado</label>
-            <input type="text" name="Codigo" id="estado" class="w-full px-4 py-2 rounded-lg border border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all" />
+            <label for="estado" class="block mt-4 mb-2 text-sm font-semibold text-sky-700">Estado</label>
+            <input type="text" name="Codigo" id="estado" class="w-full px-4 py-2 transition-all border rounded-lg border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500" />
 
-            <label for="categoria" class="block text-sm font-semibold text-sky-700 mt-4 mb-2">Categoría de Inventario</label>
-            <input type="text" name="Codigo" id="categoria" class="w-full px-4 py-2 rounded-lg border border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all" />
+            <label for="categoria" class="block mt-4 mb-2 text-sm font-semibold text-sky-700">Categoría de Inventario</label>
+            <input type="text" name="Codigo" id="categoria" class="w-full px-4 py-2 transition-all border rounded-lg border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500" />
         </div>
     </div>
 
     <!-- Botón de acción -->
-    <button id="addItemButton" class="w-full py-3 mt-6 text-white bg-sky-700 rounded-lg hover:bg-sky-600 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500">
+    <button id="addItemButton" class="w-full py-3 mt-6 text-white transition-colors rounded-lg bg-sky-700 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500">
         Cargar elemento
     </button>
 </dialog>

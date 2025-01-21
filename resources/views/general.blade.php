@@ -2,146 +2,151 @@
 
 @section('content')
     <!-- Contenido principal -->
-    <div class="flex-1 pt-8">
-        <div class="flex items-center justify-between mb-4">
-            <h1 class="px-8 text-2xl font-bold text-gray-700">Inventario</h1>
-        </div>
 
-        <div class="flex flex-wrap gap-4 p-2 place-content-between bg-slate-400">
-            <div class="flex items-center gap-2">
-                <input type="text" id="search" class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300" placeholder="Buscar ...">
-                <div class="flex items-center mx-1">
-                    <button id="Mostrar" class="flex items-center justify-center pl-1 pr-2 border border-gray-300 rounded-md h-9 hover:bg-gray-100">
-                        <div class="flex items-center gap-1 align-middle">
-                             <svg
-                                class="w-6 h-6 text-gray-500"
-                                width="18"
-                                height="18"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                            </svg>
-                            <p class="text-sm text-gray-600">Añadir</p>
-                        </div>
-                    </button>
+    <div class="main-content">
+        <section class="section">
+            <div class="flex-1 pt-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h1 class="px-8 text-2xl font-bold text-gray-700">Inventario</h1>
                 </div>
-                <div>
-                    <button class="flex items-center justify-center pl-1 pr-2 font-normal border-0 border-gray-300 rounded-md hover:no-underline h-9 hover:bg-gray-100" onclick="exportarPDF()">
-                        <div class="flex items-center gap-1 align-middle">
-                            <svg class="w-6 h-6 text-red-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                            </svg>
-                            <p class="text-sm text-gray-600">Generar reporte</p>
+
+                <div class="flex flex-wrap gap-4 p-2 place-content-between bg-slate-400">
+                    <div class="flex items-center gap-2">
+                        <input type="text" id="search" class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300" placeholder="Buscar ...">
+                        <div class="flex items-center mx-1">
+                            <button id="Mostrar" class="flex items-center justify-center pl-1 pr-2 border border-gray-300 rounded-md h-9 hover:bg-gray-100">
+                                <div class="flex items-center gap-1 align-middle">
+                                    <svg
+                                        class="w-6 h-6 text-gray-500"
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        stroke-width="2"
+                                        stroke="currentColor"
+                                        fill="none"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <line x1="12" y1="5" x2="12" y2="19" />
+                                        <line x1="5" y1="12" x2="19" y2="12" />
+                                    </svg>
+                                    <p class="text-sm text-gray-600">Añadir</p>
+                                </div>
+                            </button>
                         </div>
-                    </button>
+                        <div>
+                            <button class="flex items-center justify-center pl-1 pr-2 font-normal border-0 border-gray-300 rounded-md hover:no-underline h-9 hover:bg-gray-100" onclick="exportarPDF()">
+                                <div class="flex items-center gap-1 align-middle">
+                                    <svg class="w-6 h-6 text-red-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                    </svg>
+                                    <p class="text-sm text-gray-600">Generar reporte</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Formulario para agregar departamentos -->
+                    <div class="flex items-center gap-4">
+                        <select id="filterType" class="px-4 py-2 text-sm text-gray-700 bg-transparent border border-gray-300 rounded-lg w-30 focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                            <option class="text-sm" value="">Estado</option>
+                            <option class="text-sm" value="En_uso">En uso</option>
+                            <option class="text-sm" value="descompuesto">Descompuesto</option>
+                            <option class="text-sm" value="en_reparacion">En reparación</option>
+                            <option class="text-sm" value="nuevo">Nuevo</option>
+                        </select>
+                        <select id="filterType2" class="px-4 py-2 text-sm text-gray-700 bg-transparent border border-gray-300 rounded-lg w-30 focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                            <option class="text-sm" value="">Categoria</option>
+                            <option class="text-sm" value="EP">Equipo de proyección</option>
+                            <option class="text-sm" value="ME">Mobiliario y equipo</option>
+                            <option class="text-sm" value="EC">Equipo de cómputo</option>
+                            <option class="text-sm" value="EM">Equipo menor</option>
+                            <option class="text-sm" value="DC">Dispositivos de comunicación</option>
+                            <option class="text-sm" value="EA">Equipo de audio</option>
+                            <option class="text-sm" value="TV">Televisiones</option>
+                        </select>
+                        <select id="filterType3" class="px-4 py-2 text-sm text-gray-700 bg-transparent border border-gray-300 rounded-lg w-30 focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                            <option class="text-sm" value="">Marca Bien</option>
+                            <option class="text-sm" value="asus">Asus</option>
+                            <option class="text-sm" value="Cedrick Marcial Quintero">Cedrick Marcial Quintero</option> 
+                        </select>
+                    </div>
+                </div>
+                <!-- Tabla para listar departamentos -->
+                <div class="overflow-x-auto">
+                    <table id="inventoryTable" class="min-w-full border border-collapse border-gray-300">
+                        <thead>
+                            <tr class="bg-gray-200">
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Codigo de barras</th>
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Nomenclatura</th>
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Campus</th>
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Departamento/Área</th>
+                                {{-- <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Responsable del Área</th> --}}
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Responsable del bien</th>
+                                {{-- <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Bien</th> --}}
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Marca</th>
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Modelo</th>
+                                {{-- <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Color</th> --}}
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Numero de serie</th>
+                                {{-- <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">SAT</th>
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Adquisicion</th>
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Precio</th>
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Conta Fiscal</th> --}}
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Estado</th>
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Descripcion</th>
+                                {{-- <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Observaciones</th>
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Factura</th>
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Imagen</th>
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Unidad</th> --}}
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Categoria</th>
+                                <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Acciones</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                            <!-- Ejemplo de datos estáticos -->
+                            {{-- @foreach ( $Datos as $Dato )
+                                <tr class="hover:bg-gray-100">
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->CodigoDeBarras }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->IdNomenclatura }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Campus }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Area }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->ResponsableArea }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->ResponsableBien }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Bien }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Marca }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Modelo }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Color }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->NumSerie }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Sat }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Fecha }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Precio }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->CodigoCFiscal }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Estado }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Descripcion }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Observaciones }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Factura }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Imagen }}</td> 
+                                    <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Medida }}</td>
+                                    
+                                    <td class="flex px-4 py-2 text-sm text-gray-600 border border-gray-300">
+                                        <a class="p-2 Mostrar-e" href="{{ route('editN', ['id' => $Dato->id]) }}" > Editar </a>
+                                        <form action="{{ route('eliminarN', ['id' => $Dato->id]) }}" method="POST">
+                                            @csrf
+                                            @method('PUT') <!-- Aquí se indica que el formulario debe usar PUT -->
+                                            <button type="submit">Eliminar</button>
+                                        </form>
+                                    </td>
+
+                                </tr>    
+                            @endforeach --}}
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <!-- Formulario para agregar departamentos -->
-            <div class="flex items-center gap-4">
-                <select id="filterType" class="px-4 py-2 text-sm text-gray-700 bg-transparent border border-gray-300 rounded-lg w-30 focus:ring-2 focus:ring-blue-400 focus:outline-none">
-                    <option class="text-sm" value="">Estado</option>
-                    <option class="text-sm" value="En_uso">En uso</option>
-                    <option class="text-sm" value="descompuesto">Descompuesto</option>
-                    <option class="text-sm" value="en_reparacion">En reparación</option>
-                    <option class="text-sm" value="nuevo">Nuevo</option>
-                </select>
-                <select id="filterType2" class="px-4 py-2 text-sm text-gray-700 bg-transparent border border-gray-300 rounded-lg w-30 focus:ring-2 focus:ring-blue-400 focus:outline-none">
-                    <option class="text-sm" value="">Categoria</option>
-                    <option class="text-sm" value="EP">Equipo de proyección</option>
-                    <option class="text-sm" value="ME">Mobiliario y equipo</option>
-                    <option class="text-sm" value="EC">Equipo de cómputo</option>
-                    <option class="text-sm" value="EM">Equipo menor</option>
-                    <option class="text-sm" value="DC">Dispositivos de comunicación</option>
-                    <option class="text-sm" value="EA">Equipo de audio</option>
-                    <option class="text-sm" value="TV">Televisiones</option>
-                </select>
-                <select id="filterType3" class="px-4 py-2 text-sm text-gray-700 bg-transparent border border-gray-300 rounded-lg w-30 focus:ring-2 focus:ring-blue-400 focus:outline-none">
-                    <option class="text-sm" value="">Marca Bien</option>
-                    <option class="text-sm" value="asus">Asus</option>
-                    <option class="text-sm" value="Cedrick Marcial Quintero">Cedrick Marcial Quintero</option> 
-                </select>
-            </div>
-        </div>
-        <!-- Tabla para listar departamentos -->
-        <div class="overflow-x-auto">
-            <table id="inventoryTable" class="min-w-full border border-collapse border-gray-300">
-                <thead>
-                    <tr class="bg-gray-200">
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Codigo de barras</th>
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Nomenclatura</th>
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Campus</th>
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Departamento/Área</th>
-                        {{-- <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Responsable del Área</th> --}}
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Responsable del bien</th>
-                        {{-- <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Bien</th> --}}
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Marca</th>
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Modelo</th>
-                        {{-- <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Color</th> --}}
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Numero de serie</th>
-                        {{-- <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">SAT</th>
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Adquisicion</th>
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Precio</th>
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Conta Fiscal</th> --}}
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Estado</th>
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Descripcion</th>
-                        {{-- <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Observaciones</th>
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Factura</th>
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Imagen</th>
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Unidad</th> --}}
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Categoria</th>
-                        <th class="px-4 py-2 text-sm font-semibold text-left text-gray-700 border border-gray-300">Acciones</th>
-                    </tr>
-                </thead> 
-                <tbody>
-                    <!-- Ejemplo de datos estáticos -->
-                    {{-- @foreach ( $Datos as $Dato )
-                        <tr class="hover:bg-gray-100">
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->CodigoDeBarras }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->IdNomenclatura }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Campus }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Area }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->ResponsableArea }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->ResponsableBien }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Bien }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Marca }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Modelo }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Color }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->NumSerie }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Sat }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Fecha }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Precio }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->CodigoCFiscal }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Estado }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Descripcion }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Observaciones }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Factura }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Imagen }}</td> 
-                            <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">{{ $Dato->Medida }}</td>
-                            
-                            <td class="flex px-4 py-2 text-sm text-gray-600 border border-gray-300">
-                                <a class="p-2 Mostrar-e" href="{{ route('editN', ['id' => $Dato->id]) }}" > Editar </a>
-                                <form action="{{ route('eliminarN', ['id' => $Dato->id]) }}" method="POST">
-                                    @csrf
-                                    @method('PUT') <!-- Aquí se indica que el formulario debe usar PUT -->
-                                    <button type="submit">Eliminar</button>
-                                </form>
-                            </td>
-
-                        </tr>    
-                    @endforeach --}}
-                </tbody>
-            </table>
-        </div>
+        </section>
     </div>
 
     {{-- <div class="grid place-content-center"></div> --}}
-    <dialog id="dialog" class="top-10 py-5 min-w-[400px] px-5 rounded-lg bg-slate-300 border-2 border-sky-700" style="display: none;">
+    <dialog id="dialog" class="top-10 py-5 z-50 min-w-[400px] px-5 rounded-lg bg-slate-300 border-2 border-sky-700" style="display: none;">
         <button id="cerrarDialogo" class="absolute px-3 py-1 font-bold rounded-full right-10 text-slate-200 bg-sky-700">
             X
         </button>

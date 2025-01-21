@@ -21,6 +21,20 @@ class GeneralController extends Controller
         ]);
         // return view('General');
     }
+    
+    public function Detallado()
+    {
+        $Datos = DB::table('InventarioGeneral')
+                    ->select('*')
+                    ->where('id',1)
+                    ->get();
+
+        // dd($Datos);
+        return view('detalles', [
+            'Datos' => $Datos,
+        ]);
+        // return view('General');
+    }
 
     public function Descarga($filename)
     {
