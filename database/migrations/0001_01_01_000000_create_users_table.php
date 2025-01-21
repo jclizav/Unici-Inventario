@@ -35,6 +35,34 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+        Schema::create('InventarioGeneral', function (Blueprint $table) {
+            $table->id(); // id se define automáticamente como un campo autoincrementable de tipo bigInteger.
+            $table->string('CodigoDeBarras');
+            $table->string('IdNomenclatura');
+            $table->string('Campus');
+            $table->string('Area');
+            $table->string('ResponsableAreas');
+            $table->string('ResponsableBien');
+            $table->string('Bien');
+            $table->string('Marca');
+            $table->string('Modelo');
+            $table->string('Color');
+            $table->string('NumSerie');
+            $table->float('Sat');
+            $table->date('Fecha');
+            $table->float('Precio');
+            $table->string('CodigoCFiscal');
+            $table->string('Estado');
+            $table->text('Descripcion');
+            $table->string('Factura');
+            $table->string('Imagen');
+            $table->string('Medida');
+            $table->text('Observaciones');
+            $table->integer('Cantidad');
+            $table->integer('TI');
+            $table->timestamps(); // Opcional, si deseas tener las columnas `created_at` y `updated_at`.
+        });
     }
 
     /**

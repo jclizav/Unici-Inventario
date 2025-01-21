@@ -2,33 +2,64 @@
 
 @section('content')
     <!-- Contenido principal -->
-    <div class="flex-1 p-8">
+    <div class="flex-1 pt-8">
         <div class="flex items-center justify-between mb-4">
-            <h1 class="text-2xl font-bold text-gray-700">Inventario</h1>
-            <button id="Mostrar" class="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600">
-                Añadir
-            </button>
-            <a href="{{ route('Descarga',['filename' => 'Reporte_Bienes.pdf'])}}" class="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600">
-                Reporte
-            </a>
+            <h1 class="px-8 text-2xl font-bold text-gray-700">Inventario</h1>
         </div>
 
-        <!-- Formulario para agregar departamentos -->
-        <input type="text" id="search" class="p-2 mt-2 border border-gray-300" placeholder="Buscar por código de barras">
-        <select id="filterType" class="p-2 mt-2 border border-gray-300">
-            <option value="">Filtrar por estado</option>
-            <option value="En_uso">En uso</option>
-            <option value="descompuesto">Descompuesto</option>
-            <option value="en_reparacion">En reparación</option>
-            <option value="nuevo">Nuevo</option>
-        </select>
-        <select id="filterType2" class="p-2 mt-2 border border-gray-300">
-            <option value="">Filtrar por Activo</option>
-            <option value="121.01">121.01</option>
-            <option value="154.01">154.01</option>
-            <option value="155.01">155.01</option>
-            <option value="156.01">156.01</option>
-        </select>
+        <div class="flex flex-wrap gap-4 p-2 place-content-between bg-slate-400">
+            <div class="flex items-center gap-2">
+                <input type="text" id="search" class="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300" placeholder="Buscar ...">
+                <div class="flex items-center mx-1">
+                    <button id="Mostrar" class="flex items-center justify-center pl-1 pr-2 border border-gray-300 rounded-md h-9 hover:bg-gray-100">
+                        <div class="flex items-center gap-1 align-middle">
+                             <svg
+                                class="w-6 h-6 text-gray-500"
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" />
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                            <p class="text-sm text-gray-600">Añadir</p>
+                        </div>
+                    </button>
+                </div>
+                <div class="">
+                    <a href="{{ route('Descarga',['filename' => 'Reporte_Bienes.pdf'])}}" class="flex items-center justify-center pl-1 pr-2 font-normal border-0 border-gray-300 rounded-md hover:no-underline h-9 hover:bg-gray-100">
+                        <div class="flex items-center gap-1 align-middle">
+                            <svg class="w-6 h-6 text-red-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            <p class="text-sm text-gray-600">Generar reporte</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- Formulario para agregar departamentos -->
+            <div class="flex items-center gap-4">
+                <select id="filterType" class="w-full px-4 py-2 text-gray-700 bg-transparent border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    <option value="">Filtrar por estado</option>
+                    <option value="En_uso">En uso</option>
+                    <option value="descompuesto">Descompuesto</option>
+                    <option value="en_reparacion">En reparación</option>
+                    <option value="nuevo">Nuevo</option>
+                </select>
+                <select id="filterType2" class="w-full px-4 py-2 text-gray-700 bg-transparent border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    <option value="">Filtrar por Activo</option>
+                    <option value="121.01">121.01</option>
+                    <option value="154.01">154.01</option>
+                    <option value="155.01">155.01</option>
+                    <option value="156.01">156.01</option>
+                </select>
+            </div>
+        </div>
         <!-- Tabla para listar departamentos -->
         <div class="overflow-x-auto">
             <table id="inventoryTable" class="min-w-full border border-collapse border-gray-300">
@@ -99,6 +130,9 @@
             </table>
         </div>
 
+        {{-- <img src="{{ Storage::get('app/public/'.'Test.jpeg') }}" alt="">
+        <img src="{{ Storage::url($Datos[1]->Imagen) }}" alt=""> --}}
+        {{-- <img src="{{ asset($Datos[1]->Imagen) }}" class="w-40 h-40" alt=""> --}}
     </div>
 
     <dialog id="dialog" class="top-10 py-5 min-w-[400px] px-5 rounded-lg bg-slate-300 border-2 border-sky-700" style="display: none;">
@@ -245,14 +279,14 @@
         // }
     </script>
 
-<script>
-    function fileSelected(event) {
-        const file = event.target.files[0];
-        if (file) {
-            alert(`Archivo seleccionado: ${file.name}`);
+    <script>
+        function fileSelected(event) {
+            const file = event.target.files[0];
+            if (file) {
+                alert(`Archivo seleccionado: ${file.name}`);
+            }
         }
-    }
-</script>
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -326,7 +360,7 @@
                 }
 
                 if (filterType2.value) {
-                    filteredInventory = filteredInventory.filter(item => item.activo === filterType2.value);
+                    filteredInventory = filteredInventory.filter(item => item.sat === filterType2.value);
                 }
 
                 filteredInventory.forEach(item => {
@@ -354,10 +388,10 @@
                         <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">${item.observaciones}</td>
                         <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">${item.fac}</td>
                         <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">
-                            <img src=localhost:8000/'${item.img}'/>
+                            <img src='${item.img}' />
                         </td>
                         <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">${item.med}</td>
-                        <td class="flex px-4 py-2 text-sm text-gray-600 border border-gray-300">
+                        <td class="flex h-full px-4 py-2 text-sm text-gray-600 border border-gray-300">
                             <a class="p-2 Mostrar-e" href="actualizarDato/${item.id}">Editar</a>
                             <form action="/eliminarDato/${item.id}" method="POST">
                                 @csrf
@@ -378,6 +412,5 @@
             renderTable();
         });
     </script>
-
 
 @endsection
