@@ -51,7 +51,7 @@
             <div id="app">
                 <div class="main-wrapper main-wrapper-1">
                     <div class="navbar-bg"></div>
-                    <nav class="bg-blue-900 navbar navbar-expand-lg main-navbar">
+                    <nav class="bg-[#192f59] navbar navbar-expand-lg main-navbar">
                         <form class="mr-auto form-inline">
                             <ul class="mr-3 navbar-nav">
                                 <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i
@@ -126,7 +126,7 @@
                                 </div>
                             </div>
                         </form>
-                        <ul class="bg-blue-900 navbar-nav navbar-right">
+                        <ul class="bg-[#192f59] navbar-nav navbar-right">
                             <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
                                     class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
                                 <div class="dropdown-menu dropdown-list dropdown-menu-right">
