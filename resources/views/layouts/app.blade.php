@@ -19,7 +19,7 @@
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900 sm:flex">
             @include('layouts.navigation')
             
-            <section class="ml-[0%] w-screen pl-16">
+            <section class="ml-[0%] w-screen">
                 <!-- Page Heading -->
                 @isset($header)
                 <header class="bg-black shadow dark:bg-gray-800">
