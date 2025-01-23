@@ -14,19 +14,24 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
+    @include('layouts.navigation')
     <body class="font-sans antialiased">
+   
         <!-- Establece un color azul claro específico para el fondo -->
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900 sm:flex">
-            @include('layouts.navigation')
+      
+           
             
-            <section class="ml-[0%] w-screen pl-16">
+           
                 <!-- Page Heading -->
                 @isset($header)
-                <header class="bg-black shadow dark:bg-gray-800">
+                
                     <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                        
                         {{ $header }}
                     </div>
-                </header>
+            
+
+                
                 @endisset
                 
                 <!-- Page Content -->
