@@ -34,6 +34,8 @@ Route::get('/sourvenirs', [SourvenirsController::class, 'index'])->name('sourven
 Route::get('/papeleriainsumos', [PapeleriaInsumosController::class, 'index'])->name('papeleriainsumos');
 Route::get('/inventarioactivos', [InventarioActivosController::class, 'index'])->name('inventarioactivos');
 
+Route::get('/Detallado', [GeneralController::class, 'Detallado'])->name('inventarioDetallado');
+
 // Ruta principal (Welcome)
 // Route::get('/', function () {
 //     return view('welcome');

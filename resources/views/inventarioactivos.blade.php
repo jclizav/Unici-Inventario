@@ -3,6 +3,8 @@
 @section('content')
 
     <!-- Contenido principal -->
+    <div class="main-content">
+        <section class="section">
     <div class="flex-1 p-8 bg-white">
         <div class="flex items-center justify-between mb-4">
             <h1 class="text-2xl font-bold text-gray-700">Inventario Activos</h1>
@@ -65,5 +67,6 @@
             </table>
         </div>
     </div>
+        </section>
 </div>
 @endsection
